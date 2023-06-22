@@ -10,10 +10,14 @@ import RealityKit
 import RealityKitContent
 
 struct ContentView: View {
+    @State private var myList = ["Item1", "Item2", "Item3"]
+
     var body: some View {
         NavigationSplitView {
             List {
-                Text("Item")
+                ForEach(myList, id: \.self) { item in
+                    Text(item)
+                }
             }
             .navigationTitle("Sidebar")
         } detail: {
